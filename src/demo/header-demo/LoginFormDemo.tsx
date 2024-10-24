@@ -20,18 +20,18 @@ const LoginFormDemo = () => {
       const formData = new FormData(event.currentTarget);
       const response = await doCredentialLogin(formData);
 
-      // if (!!response.error) {
-      //   setError(response.error.message);
-      // } else {
-      //   router.push("/");
-      // }
-
-      if(response.ok){
-        router.push('/')
-      }
-      if(!!response.error){
+      if (!!response.error) {
         setError(response.error.message);
+      } else {
+        router.push("/dashboard");
       }
+
+      // if(response.ok){
+      //   router.push('/')
+      // }
+      // if(!!response.error){
+      //   setError(response.error.message);
+      // }
     } catch (error) {
       throw new Error("login error" + error);
     }

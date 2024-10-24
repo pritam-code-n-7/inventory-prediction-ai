@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { dbConnect } from "../lib/mongo";
+import { cn } from "@/lib/utils";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -23,7 +24,9 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${montserrat.className}`}>{children}</body>
+      <body className={cn("min-h-screen", montserrat.className)}>
+        {children}
+      </body>
     </html>
   );
 }
