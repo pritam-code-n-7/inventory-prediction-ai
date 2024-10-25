@@ -15,10 +15,11 @@ import {
 } from "@/components/ui/menubar";
 import { FaUpload } from "react-icons/fa6";
 import { RiNotificationBadgeFill } from "react-icons/ri";
+import { InputFileDemo } from "../inputs/InputFileDemo";
 
 export function MenubarDemo() {
   return (
-    <Menubar className="h-16">
+    <Menubar className="h-16" style={{ letterSpacing: "0.10em", }}>
       <MenubarMenu>
         <MenubarTrigger>
           <b>Dashboard</b>
@@ -44,12 +45,16 @@ export function MenubarDemo() {
             Upload data <FaUpload size={16} />
           </b>
         </MenubarTrigger>
-        <MenubarContent className="w-screen h-[500px]"></MenubarContent>
+        <MenubarContent className="w-screen h-[500px]">
+
+          <InputFileDemo />
+
+        </MenubarContent>
       </MenubarMenu>
       <MenubarMenu>
         <MenubarTrigger>
           <b className="flex gap-2">
-            Alerts <RiNotificationBadgeFill size={16} />
+            Alerts <RiNotificationBadgeFill size={16}/>
           </b>
         </MenubarTrigger>
         <MenubarContent>
