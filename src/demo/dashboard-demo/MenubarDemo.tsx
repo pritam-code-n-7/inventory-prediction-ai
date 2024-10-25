@@ -16,6 +16,7 @@ import {
 import { FaUpload } from "react-icons/fa6";
 import { RiNotificationBadgeFill } from "react-icons/ri";
 import { InputFileDemo } from "../inputs/InputFileDemo";
+import { Settings } from "lucide-react";
 
 export function MenubarDemo() {
   return (
@@ -39,16 +40,14 @@ export function MenubarDemo() {
           <MenubarSeparator />
         </MenubarContent>
       </MenubarMenu>
-      <MenubarMenu>
+      <MenubarMenu >
         <MenubarTrigger>
           <b className="flex gap-2">
             Upload data <FaUpload size={16} />
           </b>
         </MenubarTrigger>
         <MenubarContent className="w-screen h-[500px]">
-
           <InputFileDemo />
-
         </MenubarContent>
       </MenubarMenu>
       <MenubarMenu>
@@ -71,6 +70,23 @@ export function MenubarDemo() {
       <MenubarMenu>
         <MenubarTrigger>
           <b>Profiles</b>
+        </MenubarTrigger>
+        <MenubarContent>
+          <MenubarRadioGroup value="benoit">
+            <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
+            <MenubarRadioItem value="benoit">Benoit</MenubarRadioItem>
+            <MenubarRadioItem value="Luis">Luis</MenubarRadioItem>
+          </MenubarRadioGroup>
+          <MenubarSeparator />
+          <MenubarItem inset>Edit...</MenubarItem>
+          <MenubarSeparator />
+          <MenubarItem inset>Add Profile...</MenubarItem>
+        </MenubarContent>
+      </MenubarMenu>
+      <MenubarMenu>
+        <MenubarTrigger className="flex gap-2">
+          <b>Settings</b>
+          <span ><Settings size={16}/></span>
         </MenubarTrigger>
         <MenubarContent>
           <MenubarRadioGroup value="benoit">

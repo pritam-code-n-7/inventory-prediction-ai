@@ -77,13 +77,13 @@ export function NavigationMenuDemo() {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        <NavigationMenuItem>
+        {/* <NavigationMenuItem>
           <Link href="/login" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               <b>Logout</b>
             </NavigationMenuLink>
           </Link>
-        </NavigationMenuItem>
+        </NavigationMenuItem> */}
       </NavigationMenuList>
     </NavigationMenu>
   );
