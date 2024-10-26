@@ -1,5 +1,5 @@
 "use client";
-import { AlertDialogDemo } from "@/demo/dashboard-demo/AlertDialogDemo";
+import { AlertDialogDemo } from "@/demo/dashboard-demo/LogoutDialogDemo";
 import { MenubarDemo } from "@/demo/dashboard-demo/MenubarDemo";
 import { SearchDialogDemo } from "@/demo/dashboard-demo/SearchDialogDemo";
 import Image from "next/image";

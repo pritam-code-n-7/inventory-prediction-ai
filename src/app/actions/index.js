@@ -3,7 +3,9 @@
 import { signIn, signOut } from "../../auth";
 
 export async function doLogout() {
-  await signOut({ redirectTo: "/" });
+  const logout = await signOut({ redirectTo: "/" });
+  console.log(logout);
+  
 }
 
 export async function doCredentialLogin(formData) {
