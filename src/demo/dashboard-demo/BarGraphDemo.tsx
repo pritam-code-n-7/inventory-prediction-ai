@@ -11,23 +11,25 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 
-const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
-];
+import Data from "@/data/inventoryUsageData.json"
+
+// const chartData = [
+//   { month: "January", desktop: 186, mobile: 80, },
+//   { month: "February", desktop: 305, mobile: 200 },
+//   { month: "March", desktop: 237, mobile: 120 },
+//   { month: "April", desktop: 73, mobile: 190 },
+//   { month: "May", desktop: 209, mobile: 130 },
+//   { month: "June", desktop: 214, mobile: 140 },
+// ];
 
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
+  samsung: {
+    label: "Samsung",
     // color: "#2563eb",
     color:"hsl(var(--chart-1))"
   },
-  mobile: {
-    label: "Mobile",
+  iphone: {
+    label: "Iphone",
     // color: "#60a5fa",
     color:"hsl(var(--chart-2))"
   },
@@ -36,7 +38,7 @@ const chartConfig = {
 export function BarGraphDemo() {
   return (
     <ChartContainer config={chartConfig} className="h-[200px] w-full">
-      <BarChart accessibilityLayer data={chartData}>
+      <BarChart accessibilityLayer data={Data}>
         <CartesianGrid vertical={false} />
         <XAxis
           dataKey="month"
@@ -47,8 +49,8 @@ export function BarGraphDemo() {
         />
         <ChartTooltip content={<ChartTooltipContent />} />
         <ChartLegend content={<ChartLegendContent />} />
-        <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
-        <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+        <Bar dataKey="samsung" fill="var(--color-samsung)" radius={4} />
+        <Bar dataKey="iphone" fill="var(--color-iphone)" radius={4} />
       </BarChart>
     </ChartContainer>
   );
