@@ -8,7 +8,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="flex items-center justify-center gap-52">
+    <div className="flex items-center justify-center gap-96">
       <Link href={"/"}>
         <Image
           src="/assets/images/stidax-logo.png"

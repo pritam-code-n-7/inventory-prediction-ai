@@ -1,8 +1,9 @@
 'use client'
 import { BG_IMG } from "@/constant/Images";
-import ButtonDemo from "@/demo/buttons/ButtonDemo";
+import CustomButton from "@/demo/buttons/CustomButton";
 import { useRouter } from "next/navigation";
 import React from "react";
+import { MdOutlineArrowCircleRight } from "react-icons/md";
 
 const HeroSection = () => {
   const router = useRouter();
@@ -15,9 +16,10 @@ const HeroSection = () => {
       {/* <p className="font-bold text-gray-500 text-2xl">
         with AI
       </p> */}
-      <ButtonDemo
+      <CustomButton
         name="Get Started"
         type="button"
+        icon={<MdOutlineArrowCircleRight/>}
         onClick={()=>router.push('/register')}
         className="py-7 px-10 rounded-lg bg-green-600 text-white font-bold shadow-md"
         

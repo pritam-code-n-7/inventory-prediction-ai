@@ -73,17 +73,22 @@ const LoginFormDemo = () => {
 
         <LoginButton name="Login" />
         <CustomButton
-          name="Login with Google"
+          name="Continue with Google"
           type="submit"
           icon={<RiGoogleFill size={27} />}
         />
-        <Link
-          href={"/register"}
-          style={{ color: "blue" }}
-          className="text-sm font-semibold hover:underline flex justify-center "
-        >
-          Do not have an account! please Register.
-        </Link>
+       <div className="flex items-center gap-2 justify-center">
+            <p style={{ color: "gray"}}>
+            Dont have an account?
+            </p>
+          <Link
+            href={"/register"}
+            style={{ color: "orange" }}
+            className="font-semibold"
+          >
+            Register
+          </Link>
+          </div>
       </form>
     </div>
   );

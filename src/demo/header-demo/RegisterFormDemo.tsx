@@ -131,13 +131,18 @@ const RegisterFormDemo = () => {
           ></FormField>
 
           <LoginButton name="Register" />
+          <div className="flex items-center gap-2 justify-center">
+            <p style={{ color: "gray"}}>
+            Already have an account?
+            </p>
           <Link
             href={"/login"}
-            style={{ color: "blue" }}
-            className="text-sm font-semibold hover:underline flex justify-center"
+            style={{ color: "orange" }}
+            className="font-semibold"
           >
-            Already registerd! please Log In.
+            Login
           </Link>
+          </div>
         </form>
       </Form>
     </div>

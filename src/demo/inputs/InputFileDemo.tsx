@@ -8,12 +8,21 @@ import { FormEvent, useState } from "react";
 import * as XLSX from "xlsx";
 import { salesDataCreateBulk } from "@/app/actions/salesDataUploadAction";
 import { SalesDataType } from "@/types/SalesDataType";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 export function InputFileDemo() {
   const [file, setFile] = useState<File | null>(null);
-  // const [jsonData, setJsonData] = useState<SalesDataType[]>([]);
+  const [tableData, setTableData] = useState<SalesDataType[]>([]);
 
-  console.log(file);
+  console.log("table data is" + JSON.stringify(tableData));
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -28,6 +37,8 @@ export function InputFileDemo() {
 
         const json: SalesDataType[] = XLSX.utils.sheet_to_json(workSheet);
         console.log(json);
+
+        setTableData(json);
 
         // Ensure that we are passing plain objects
         const plainObjects = json.map(({ Name, Age, City, Occupation }) => ({
@@ -54,30 +65,60 @@ export function InputFileDemo() {
   };
 
   return (
-    <form
-      className="grid grid-cols-1 w-full max-w-sm items-center gap-5 p-20"
-      onSubmit={handleSubmit}
-    >
-      <Label htmlFor="xls/xlsx">XLS/XLSX</Label>
-      <Input
-        id="xls/xlsx"
-        type="file"
-        name="data"
-        onChange={(e) => setFile(e.target.files ? e.target.files[0] : null)}
-        accept=".xls, .xlsx"
-        required
-      />
-      <UploadButton name={<FaUpload size={16} />} type="submit" />
-      <div className="flex items-center justify-center gap-5">
-        <ButtonDemo
-          name={"Download PDF"}
-          type="button"
-          className="border border-black bg-white text-black"
+    <div>
+      <form
+        className="grid grid-cols-1 w-full max-w-sm items-center gap-5 p-20"
+        onSubmit={handleSubmit}
+      >
+        <Label htmlFor="xls/xlsx">XLS/XLSX</Label>
+        <Input
+          id="xls/xlsx"
+          type="file"
+          name="data"
+          onChange={(e) => setFile(e.target.files ? e.target.files[0] : null)}
+          accept=".xls, .xlsx"
+          required
         />
-        <ButtonDemo name={"Show AI prediction"} type="button" />
-      </div>
-      {/* Display parsed JSON data
-      {jsonData && <pre>{jsonData}</pre>} */}
-    </form>
+        <UploadButton name={<FaUpload size={16} />} type="submit" />
+        <div className="flex items-center justify-center gap-5">
+          <ButtonDemo
+            name={"Download as PDF"}
+            type="button"
+            className="border border-black bg-white text-black"
+          />
+          <ButtonDemo name={"AI prediction Preview"} type="button" />
+          <ButtonDemo
+            name={"Table Preview"}
+            type="submit"
+            className="border border-black bg-white text-black"
+          />
+        </div>
+      </form>
+      {/* display as a table */}
+
+     
+        <Table >
+          <TableCaption>A list of your inventory</TableCaption>
+          <TableHeader>
+            <TableRow>
+              <TableHead className="w-[100px]">Name</TableHead>
+              <TableHead>Age</TableHead>
+              <TableHead>City</TableHead>
+              <TableHead className="text-right">Occupation</TableHead>
+            </TableRow>
+          </TableHeader>
+          {tableData.map((item, index) => (
+          <TableBody key={index}>
+            <TableRow>
+              <TableCell className="font-medium">{item.Name}</TableCell>
+              <TableCell>{item.Age}</TableCell>
+              <TableCell>{item.City}</TableCell>
+              <TableCell className="text-right">{item.Occupation}</TableCell>
+            </TableRow>
+          </TableBody>
+             ))}
+        </Table>
+   
+    </div>
   );
 }

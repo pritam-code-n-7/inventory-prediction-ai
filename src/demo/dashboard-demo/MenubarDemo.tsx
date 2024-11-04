@@ -46,7 +46,7 @@ export function MenubarDemo() {
             Upload data <FaUpload size={16} />
           </b>
         </MenubarTrigger>
-        <MenubarContent className="w-screen h-[500px]">
+        <MenubarContent className="w-screen h-screen">
           <InputFileDemo />
         </MenubarContent>
       </MenubarMenu>

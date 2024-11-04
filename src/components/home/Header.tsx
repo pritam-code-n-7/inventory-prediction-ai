@@ -10,7 +10,7 @@ const Header = () => {
 const router = useRouter();
 
   return (
-    <div className="flex items-center justify-center gap-64">
+    <div className="flex items-center justify-center gap-96">
       <Link href={"/"}>
         <Image
           src="/assets/images/stidax-logo.png"
