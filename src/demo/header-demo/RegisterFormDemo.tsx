@@ -137,8 +137,8 @@ const RegisterFormDemo = () => {
             </p>
           <Link
             href={"/login"}
-            style={{ color: "orange" }}
-            className="font-semibold"
+            style={{ color: "black" }}
+            className="font-bold"
           >
             Login
           </Link>

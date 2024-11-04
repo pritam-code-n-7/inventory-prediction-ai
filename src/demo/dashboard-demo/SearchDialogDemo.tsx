@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
-import { ScrollAreaDemo } from "./ScrollAreaDemo";
 
 export function SearchDialogDemo() {
   return (
@@ -22,7 +21,7 @@ export function SearchDialogDemo() {
           placeholder="Search by SKU...."
           className="col-span-3"
         />
-        <ScrollAreaDemo />
+        {/* <ScrollAreaDemo /> */}
       </DialogContent>
     </Dialog>
   );

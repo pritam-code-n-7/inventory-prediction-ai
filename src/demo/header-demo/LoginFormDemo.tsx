@@ -83,8 +83,8 @@ const LoginFormDemo = () => {
             </p>
           <Link
             href={"/register"}
-            style={{ color: "orange" }}
-            className="font-semibold"
+            style={{ color: "black" }}
+            className="font-bold"
           >
             Register
           </Link>

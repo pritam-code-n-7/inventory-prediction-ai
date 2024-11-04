@@ -26,6 +26,23 @@ const aboutUs: { title: string; href: string }[] = [
     title: "about",
     href: "/",
   },
+  {
+    title: "about",
+    href: "/",
+  },
+  {
+    title: "about",
+    href: "/",
+  },
+  {
+    title: "about",
+    href: "/",
+  },
+  {
+    title: "about",
+    href: "/",
+  },
+  
 ];
 
 export function NavigationMenuDemo() {
@@ -46,10 +63,10 @@ export function NavigationMenuDemo() {
           <NavigationMenuTrigger>
             <b> About us</b>
           </NavigationMenuTrigger>
-          <NavigationMenuContent>
+          <NavigationMenuContent >
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-3 lg:w-[900px]">
               {aboutUs.map((about) => (
-                <Link href={about.href} key={about.title}>
+                <Link href={about.href} key={about.title} >
                   <ListItem title={about.title} />
                 </Link>
               ))}
