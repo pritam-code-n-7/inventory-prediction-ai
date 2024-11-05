@@ -1,4 +1,4 @@
-# Inventory Prediction AI using chart.js (frontend)
+# Inventory Prediction AI 
 
 This is a next.js project,  which can be run locally. Follow the steps below to set up and start the project. (Please try to setup locally and use and download the .csv, .xlsx, .xls file and upload)
 
