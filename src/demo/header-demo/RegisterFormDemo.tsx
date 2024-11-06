@@ -84,6 +84,7 @@ const RegisterFormDemo = () => {
                     type="text"
                     placeholder="Your name"
                     name="name"
+                    autoComplete="name"
                     required
                     style={{ height: "48px" }}
                   />
@@ -103,6 +104,7 @@ const RegisterFormDemo = () => {
                     type="email"
                     placeholder="Your email address"
                     name="email"
+                    autoComplete="email"
                     required
                     style={{ height: "48px" }}
                   />
@@ -122,6 +124,7 @@ const RegisterFormDemo = () => {
                     type="password"
                     placeholder="Enter a strong password"
                     name="password"
+                    autoComplete="password"
                     required
                     style={{ height: "48px" }}
                   />

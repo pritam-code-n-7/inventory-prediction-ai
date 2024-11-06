@@ -20,21 +20,14 @@ const LoginFormDemo = () => {
     try {
       const formData = new FormData(event.currentTarget);
       const response = await doCredentialLogin(formData);
-
+      
       if (!!response.error) {
         setError(response.error.message);
       } else {
         router.push("/dashboard");
       }
-
-      // if(response.ok){
-      //   router.push('/')
-      // }
-      // if(!!response.error){
-      //   setError(response.error.message);
-      // }
     } catch (error) {
-      throw new Error("login error" + error);
+      console.error(error);
     }
   };
 
@@ -59,6 +52,7 @@ const LoginFormDemo = () => {
           type="email"
           name="email"
           placeholder="Enter your email address"
+          autoComplete="email"
           required
           style={{ height: "48px" }}
         />
@@ -67,6 +61,7 @@ const LoginFormDemo = () => {
           name="password"
           type="password"
           placeholder="Enter your password"
+          autoComplete="password"
           required
           style={{ height: "48px" }}
         />
@@ -77,10 +72,8 @@ const LoginFormDemo = () => {
           type="submit"
           icon={<RiGoogleFill size={27} />}
         />
-       <div className="flex items-center gap-2 justify-center">
-            <p style={{ color: "gray"}}>
-            Dont have an account?
-            </p>
+        <div className="flex items-center gap-2 justify-center">
+          <p style={{ color: "gray" }}>Dont have an account?</p>
           <Link
             href={"/register"}
             style={{ color: "black" }}
@@ -88,7 +81,7 @@ const LoginFormDemo = () => {
           >
             Register
           </Link>
-          </div>
+        </div>
       </form>
     </div>
   );

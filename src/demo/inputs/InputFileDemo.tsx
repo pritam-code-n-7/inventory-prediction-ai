@@ -22,6 +22,7 @@ export function InputFileDemo() {
   const [file, setFile] = useState<File | null>(null);
   const [tableData, setTableData] = useState<SalesDataType[]>([]);
 
+  console.log(file);
   console.log("table data is" + JSON.stringify(tableData));
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -70,13 +71,13 @@ export function InputFileDemo() {
         className="grid grid-cols-1 w-full max-w-sm items-center gap-5 p-20"
         onSubmit={handleSubmit}
       >
-        <Label htmlFor="xls/xlsx">XLS/XLSX</Label>
+        <Label htmlFor="csv/xls/xlsx">CSV/XLS/XLSX</Label>
         <Input
-          id="xls/xlsx"
+          id="csv/xls/xlsx"
           type="file"
           name="data"
           onChange={(e) => setFile(e.target.files ? e.target.files[0] : null)}
-          accept=".xls, .xlsx"
+          accept=".xls, .xlsx, .csv"
           required
         />
         <UploadButton name={<FaUpload size={16} />} type="submit" />

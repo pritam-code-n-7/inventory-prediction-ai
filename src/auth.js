@@ -25,14 +25,17 @@ export const {
           const user = await User.findOne({
             email: credentials?.email,
           });
-          console.log(user);
+          //console.log(user);
 
           if (user) {
             const isMatch = await bcrypt.compare(
-              user?.password,
-              credentials.password
-            );
+              //plain text password should keep first then hashed password
+              credentials.password,
+              user?.password
+            )
             if (isMatch) {
+              //console.log(user);
+              
               return user;
             } else {
               throw new Error("email or password is incorrect");
