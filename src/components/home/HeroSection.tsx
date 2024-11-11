@@ -17,7 +17,7 @@ const HeroSection = () => {
         with AI
       </p> */}
       <CustomButton
-        name="Get Started"
+        btnname="Get Started"
         type="button"
         icon={<MdOutlineArrowCircleRight/>}
         onClick={()=>router.push('/register')}

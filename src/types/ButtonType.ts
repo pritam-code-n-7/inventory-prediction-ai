@@ -2,8 +2,11 @@ import { ReactNode } from "react";
 
 export type ButtonType = {
   type: 'button' | 'submit' | 'reset';
-  name: string | ReactNode;
+  name?: string;
   onClick?: () => void;
   className?: string;
-  icon?:ReactNode
+  icon?:ReactNode;
+  value?:string;
+  btnname?:string | ReactNode;
+
 };

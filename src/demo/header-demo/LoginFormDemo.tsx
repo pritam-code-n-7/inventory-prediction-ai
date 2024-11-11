@@ -6,7 +6,7 @@ import React, { FormEvent, useState } from "react";
 
 import LoginButton from "../buttons/LoginButton";
 import { Input } from "@/components/ui/input";
-import { doCredentialLogin } from "../../app/actions/index";
+import { doCredentialLogin, doSocialLogin } from "../../app/actions/index";
 import { useRouter } from "next/navigation";
 import CustomButton from "../buttons/CustomButton";
 import { RiGoogleFill } from "react-icons/ri";
@@ -20,7 +20,7 @@ const LoginFormDemo = () => {
     try {
       const formData = new FormData(event.currentTarget);
       const response = await doCredentialLogin(formData);
-      
+
       if (!!response.error) {
         setError(response.error.message);
       } else {
@@ -67,11 +67,23 @@ const LoginFormDemo = () => {
         />
 
         <LoginButton name="Login" />
-        <CustomButton
-          name="Continue with Google"
-          type="submit"
-          icon={<RiGoogleFill size={27} />}
-        />
+      </form>
+      <div className="flex flex-col items-center gap-10">
+        {/* seperator */}
+        <div className="flex items-center gap-2 justify-center">
+          <hr className="border-2 border-gray-600 w-7" />
+          <span>Or</span>
+          <hr className="border-2 border-gray-600 w-7" />
+        </div>
+        <form action={doSocialLogin}>
+          <CustomButton
+            name="action"
+            value="google"
+            btnname="Continue with Google"
+            type="submit"
+            icon={<RiGoogleFill size={27} />}
+          />
+        </form>
         <div className="flex items-center gap-2 justify-center">
           <p style={{ color: "gray" }}>Dont have an account?</p>
           <Link
@@ -82,7 +94,7 @@ const LoginFormDemo = () => {
             Register
           </Link>
         </div>
-      </form>
+      </div>
     </div>
   );
 };

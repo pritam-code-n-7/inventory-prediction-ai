@@ -80,7 +80,7 @@ export function InputFileDemo() {
           accept=".xls, .xlsx, .csv"
           required
         />
-        <UploadButton name={<FaUpload size={16} />} type="submit" />
+        <UploadButton btnname={<FaUpload size={16} />} type="submit" />
         <div className="flex items-center justify-center gap-5">
           <ButtonDemo
             name={"Download as PDF"}

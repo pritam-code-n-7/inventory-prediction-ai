@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ButtonType } from "@/types/ButtonType";
 import { useFormStatus } from "react-dom";
 
-export default function UploadButton({ name, type }:ButtonType) {
+export default function UploadButton({ btnname, type }:ButtonType) {
   const { pending } = useFormStatus();
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -18,7 +18,7 @@ export default function UploadButton({ name, type }:ButtonType) {
       type={type}
       onClick={handleClick}
     >
-      {name}
+      {btnname}
     </Button>
   );
 }
