@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/menubar";
 import { FaUpload } from "react-icons/fa6";
 import { RiNotificationBadgeFill } from "react-icons/ri";
-import { InputFileDemo } from "../inputs/InputFileDemo";
+// import { InputFileDemo } from "../inputs/InputFileDemo";
 import { Settings } from "lucide-react";
 
 export function MenubarDemo() {
@@ -47,7 +47,7 @@ export function MenubarDemo() {
           </b>
         </MenubarTrigger>
         <MenubarContent className="w-screen h-screen">
-          <InputFileDemo />
+          {/* <InputFileDemo /> */}
         </MenubarContent>
       </MenubarMenu>
       <MenubarMenu>

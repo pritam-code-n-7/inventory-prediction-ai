@@ -15,8 +15,6 @@ export async function doSocialLogin(formData) {
       //redirect:false,
     });
 
-    
-
     console.log(action);
   } catch (error) {
     // throw new Error(error);

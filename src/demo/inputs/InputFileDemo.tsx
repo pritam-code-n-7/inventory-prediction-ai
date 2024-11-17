@@ -20,7 +20,7 @@ import {
 
 export function InputFileDemo() {
   const [file, setFile] = useState<File | null>(null);
-  const [tableData, setTableData] = useState<SalesDataType[]>([]);
+ const [tableData, setTableData] = useState<SalesDataType[]>([]);
 
   console.log(file);
   console.log("table data is" + JSON.stringify(tableData));
@@ -88,16 +88,11 @@ export function InputFileDemo() {
             className="border border-black bg-white text-black"
           />
           <ButtonDemo name={"AI prediction Preview"} type="button" />
-          <ButtonDemo
-            name={"Table Preview"}
-            type="submit"
-            className="border border-black bg-white text-black"
-          />
         </div>
       </form>
       {/* display as a table */}
 
-     
+           
         <Table >
           <TableCaption>A list of your inventory</TableCaption>
           <TableHeader>
@@ -119,7 +114,6 @@ export function InputFileDemo() {
           </TableBody>
              ))}
         </Table>
-   
     </div>
   );
 }

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { dbConnect } from "../lib/mongo";
 import { cn } from "@/lib/utils";
 
-const montserrat = Montserrat({
+const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
+  weight: ["100","200","300","400","500","600","700","800","900"]
 });
 
 export const metadata: Metadata = {
@@ -24,7 +25,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={cn("min-h-screen", montserrat.className)}>
+      <body className={cn("min-h-screen", poppins.className)}>
         {children}
       </body>
     </html>
