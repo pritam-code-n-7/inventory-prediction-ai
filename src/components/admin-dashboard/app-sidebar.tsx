@@ -1,10 +1,9 @@
 'use client'
 import * as React from "react"
 import {
-  BookOpen,
   Bot,
-  Frame,
   LifeBuoy,
+  LucideGitCompare,
   Map,
   PieChart,
   Send,
@@ -38,68 +37,38 @@ export  function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) 
   const data = {
     user: {
       name: "shadcn",
-      email: "m@example.com",
+      email: "devstidax@gmail.com",
       avatar: "/avatars/shadcn.jpg",
     },
     navMain: [
       {
-        title: "Playground",
+        title: "Metrics",
         url: "#",
         icon: SquareTerminal,
-        isActive: true,
+        isActive: false,
         items: [
           {
-            title: "History",
+            title: "Inventory Levels",
             url: "#",
           },
           {
-            title: "Starred",
-            url: "#",
-          },
-          {
-            title: "Settings",
+            title: "Predicted Demand",
             url: "#",
           },
         ],
       },
       {
-        title: "Models",
+        title: "Alerts",
         url: "#",
         icon: Bot,
+        isActive:true,
         items: [
           {
-            title: "Genesis",
+            title: "Low Stock Alerts",
             url: "#",
           },
           {
-            title: "Explorer",
-            url: "#",
-          },
-          {
-            title: "Quantum",
-            url: "#",
-          },
-        ],
-      },
-      {
-        title: "Documentation",
-        url: "#",
-        icon: BookOpen,
-        items: [
-          {
-            title: "Introduction",
-            url: "#",
-          },
-          {
-            title: "Get Started",
-            url: "#",
-          },
-          {
-            title: "Tutorials",
-            url: "#",
-          },
-          {
-            title: "Changelog",
+            title: "Over Stock Alerts",
             url: "#",
           },
         ],
@@ -142,17 +111,17 @@ export  function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) 
     ],
     projects: [
       {
-        name: "Design Engineering",
+        name: "Predicted vs Actual Sales/Inventory",
         url: "#",
-        icon: Frame,
+        icon: LucideGitCompare,
       },
       {
-        name: "Sales & Marketing",
+        name: "Inventory Usage per Category/Product",
         url: "#",
         icon: PieChart,
       },
       {
-        name: "Travel",
+        name: "Seasonal trends in demand",
         url: "#",
         icon: Map,
       },

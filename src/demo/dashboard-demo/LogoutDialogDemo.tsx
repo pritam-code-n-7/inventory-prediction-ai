@@ -13,12 +13,12 @@ import {
 import { Button } from "@/components/ui/button";
 import { LogOut } from "lucide-react";
 
-export function AlertDialogDemo() {
+export function LogoutDialogDemo() {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
         <Button variant="ghost">
-          <LogOut />
+          <LogOut />Log Out
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>

@@ -1,5 +1,5 @@
 "use client";
-import { AlertDialogDemo } from "@/demo/dashboard-demo/LogoutDialogDemo";
+import { LogoutDialogDemo } from "@/demo/dashboard-demo/LogoutDialogDemo";
 import { MenubarDemo } from "@/demo/dashboard-demo/MenubarDemo";
 import { SearchDialogDemo } from "@/demo/dashboard-demo/SearchDialogDemo";
 import Image from "next/image";
@@ -20,7 +20,7 @@ const Header = () => {
       <MenubarDemo />
       <div className="flex items-center gap-10">
         <SearchDialogDemo />
-        <AlertDialogDemo />
+        <LogoutDialogDemo />
       </div>
     </div>
   );
