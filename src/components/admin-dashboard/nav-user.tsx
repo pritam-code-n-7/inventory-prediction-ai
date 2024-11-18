@@ -106,6 +106,7 @@ export function NavUser({
               <LogOut />
               Log out
             </DropdownMenuItem> */}
+
             <LogoutDialogDemo />
           </DropdownMenuContent>
         </DropdownMenu>

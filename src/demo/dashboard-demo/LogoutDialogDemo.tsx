@@ -17,8 +17,9 @@ export function LogoutDialogDemo() {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="ghost">
-          <LogOut />Log Out
+        <Button variant="ghost" className="w-full flex items-center">
+          <LogOut />
+          Log Out
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>

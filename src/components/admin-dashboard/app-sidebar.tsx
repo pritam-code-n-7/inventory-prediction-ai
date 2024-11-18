@@ -27,16 +27,14 @@ import { NavSecondary } from "./nav-secondary"
 import { NavUser } from "./nav-user"
 import Link from "next/link"
 import Image from "next/image"
-// import { auth } from "@/auth"
-// import { redirect } from "next/navigation"
 
 
 
-export  function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   const data = {
     user: {
-      name: "shadcn",
+      name: "Dev",
       email: "devstidax@gmail.com",
       avatar: "/avatars/shadcn.jpg",
     },
@@ -127,11 +125,6 @@ export  function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) 
       },
     ],
   }
-
-// const session =await auth();
-
-// if(!session!.user) redirect('login')
-
 
   return (
     <Sidebar variant="inset" {...props}>

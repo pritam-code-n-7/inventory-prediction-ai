@@ -1,4 +1,5 @@
 
+import { auth } from "@/auth";
 import { AppSidebar } from "@/components/admin-dashboard/app-sidebar";
 import {
   Breadcrumb,
@@ -26,8 +27,14 @@ import {
 import { BarGraphDemo } from "@/demo/dashboard-demo/BarGraphDemo";
 import { LineChartDemo } from "@/demo/dashboard-demo/LineChartDemo";
 import { InputFileDemo } from "@/demo/inputs/InputFileDemo";
+import { redirect } from "next/navigation";
 
-export default function Page() {
+export default async function Page() {
+
+  const session = await auth();
+
+if(!session?.user) redirect("/login")
+
 
   return (
     <SidebarProvider>
@@ -45,6 +52,10 @@ export default function Page() {
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
                   <BreadcrumbPage>Admin Dashboard</BreadcrumbPage>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator className="hidden md:block" />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>Welcome! {session!.user!.name ?? ''}👋🏾 </BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>

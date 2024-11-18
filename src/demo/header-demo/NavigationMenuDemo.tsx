@@ -6,44 +6,41 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
-const settings: { title: string; href: string }[] = [
-  {
-    title: "all settings",
-    href: "/",
-  },
-];
+// const settings: { title: string; href: string }[] = [
+//   {
+//     title: "all settings",
+//     href: "/",
+//   },
+// ];
 
-const aboutUs: { title: string; href: string }[] = [
-  {
-    title: "about",
-    href: "/",
-  },
-  {
-    title: "about",
-    href: "/",
-  },
-  {
-    title: "about",
-    href: "/",
-  },
-  {
-    title: "about",
-    href: "/",
-  },
-  {
-    title: "about",
-    href: "/",
-  },
-  
-];
+// const aboutUs: { title: string; href: string }[] = [
+//   {
+//     title: "about",
+//     href: "/",
+//   },
+//   {
+//     title: "about",
+//     href: "/",
+//   },
+//   {
+//     title: "about",
+//     href: "/",
+//   },
+//   {
+//     title: "about",
+//     href: "/",
+//   },
+//   {
+//     title: "about",
+//     href: "/",
+//   },
+// ];
 
 export function NavigationMenuDemo() {
   return (
@@ -60,40 +57,20 @@ export function NavigationMenuDemo() {
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>
-            <b> About us</b>
-          </NavigationMenuTrigger>
-          <NavigationMenuContent >
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-3 lg:w-[900px]">
-              {aboutUs.map((about) => (
-                <Link href={about.href} key={about.title} >
-                  <ListItem title={about.title} />
-                </Link>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
           <Link href="/pages/contact" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              <b>Contact us</b>
+              <b>About Us</b>
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>
-            <b>Features</b>
-          </NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-3 lg:w-[900px]">
-              {settings.map((item) => (
-                <Link href={item.href} key={item.title}>
-                  <ListItem title={item.title} />
-                </Link>
-              ))}
-            </ul>
-          </NavigationMenuContent>
+          <Link href="/pages/contact" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <b>Contact Us</b>
+            </NavigationMenuLink>
+          </Link>
         </NavigationMenuItem>
+       
         {/* <NavigationMenuItem>
           <Link href="/login" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>

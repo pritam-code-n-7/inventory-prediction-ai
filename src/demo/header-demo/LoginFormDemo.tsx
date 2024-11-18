@@ -24,7 +24,7 @@ const LoginFormDemo = () => {
       if (!!response.error) {
         setError(response.error.message);
       } else {
-        router.push("/dashboard");
+        router.push("/adminDashboard");
       }
     } catch (error) {
       console.error(error);

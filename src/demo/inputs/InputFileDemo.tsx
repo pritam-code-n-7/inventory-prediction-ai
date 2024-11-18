@@ -4,19 +4,13 @@ import { Label } from "@/components/ui/label";
 import ButtonDemo from "../buttons/ButtonDemo";
 import { FaUpload } from "react-icons/fa6";
 import UploadButton from "../buttons/UploadButton";
-import { FormEvent, useState } from "react";
+import {FormEvent, useState } from "react";
 import * as XLSX from "xlsx";
 import { salesDataCreateBulk } from "@/app/actions/salesDataUploadAction";
 import { SalesDataType } from "@/types/SalesDataType";
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+
+
 
 export function InputFileDemo() {
   const [file, setFile] = useState<File | null>(null);
