@@ -4,21 +4,32 @@ import { Label } from "@/components/ui/label";
 import ButtonDemo from "../buttons/ButtonDemo";
 import { FaUpload } from "react-icons/fa6";
 import UploadButton from "../buttons/UploadButton";
-import {FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import * as XLSX from "xlsx";
 import { salesDataCreateBulk } from "@/app/actions/salesDataUploadAction";
 import { SalesDataType } from "@/types/SalesDataType";
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
-
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf"
 
 export function InputFileDemo() {
   const [file, setFile] = useState<File | null>(null);
- const [tableData, setTableData] = useState<SalesDataType[]>([]);
+  const [tableData, setTableData] = useState<SalesDataType[]>([]);
+  const pdfRef = useRef<HTMLDivElement>(null);
 
   console.log(file);
   console.log("table data is" + JSON.stringify(tableData));
 
+  //handler to save the file in json format in db
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -59,6 +70,24 @@ export function InputFileDemo() {
     }
   };
 
+  //handler for download as pdf
+  const downloadPdf = async()=>{
+    const element = pdfRef.current;
+    if(!element) return;
+
+    const canvas = await html2canvas(element);
+    const imgData = canvas.toDataURL('image/png')
+
+    const pdf = new jsPDF("p","mm","a4");
+    const imgWidth = 190;
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+    pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
+    pdf.save("table-data.pdf");
+
+  }
+
+
+
   return (
     <div>
       <form
@@ -79,6 +108,7 @@ export function InputFileDemo() {
           <ButtonDemo
             name={"Download as PDF"}
             type="button"
+            onClick={downloadPdf}
             className="border border-black bg-white text-black"
           />
           <ButtonDemo name={"AI prediction Preview"} type="button" />
@@ -86,8 +116,8 @@ export function InputFileDemo() {
       </form>
       {/* display as a table */}
 
-           
-        <Table >
+      <div className="p-2" ref={pdfRef}>
+        <Table>
           <TableCaption>A list of your inventory</TableCaption>
           <TableHeader>
             <TableRow>
@@ -97,17 +127,18 @@ export function InputFileDemo() {
               <TableHead className="text-right">Occupation</TableHead>
             </TableRow>
           </TableHeader>
-          {tableData.map((item, index) => (
-          <TableBody key={index}>
-            <TableRow>
-              <TableCell className="font-medium">{item.Name}</TableCell>
-              <TableCell>{item.Age}</TableCell>
-              <TableCell>{item.City}</TableCell>
-              <TableCell className="text-right">{item.Occupation}</TableCell>
-            </TableRow>
+          <TableBody>
+            {tableData.map((item, index) => (
+              <TableRow key={index}>
+                <TableCell className="font-medium">{item.Name}</TableCell>
+                <TableCell>{item.Age}</TableCell>
+                <TableCell>{item.City}</TableCell>
+                <TableCell className="text-right">{item.Occupation}</TableCell>
+              </TableRow>
+            ))}
           </TableBody>
-             ))}
         </Table>
+      </div>
     </div>
   );
 }
